@@ -1,0 +1,780 @@
+/* */
+/*Throughout index.css I'll refer to this video: https://www.youtube.com/watch?v=t6CBKf8K_Ac&t=1449s- I learned to use the CSS Grid positioning tool using this tutorial. */
+
+/*General style for the entire project */
+
+html, body {
+    margin:0px;
+    box-sizing: border-box; /*Includes padding and margin in box sizing. */
+    height:100vh; /*FCC grid puts it all on one line */
+    font-family:Arial, Helvetica, sans-serif; 
+}
+
+/*Wrapper around grid boxes. */
+.wrapper {
+    display:flex;/*FCC grid tutorial. This allows both justify content and align items to be used. Effectively then we're amalgamting the usage of Flexbox and CSS Grid. */
+    justify-content: center; /*Horizontal centering FCC */
+    align-items:center; /*Vertical centering -these are both features of flexbox*/
+    font-size: 1em; /*1 EM = 16px i.e. browser default */
+    color:black;
+}
+
+
+/*INDEX */
+
+
+/*Wrapper Grid */
+
+.wrapper{
+    height:100%;
+    display:grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(12,1fr); /*FCC Grid tutorial. This means that the columns have been broken up into 12 fractions within the wrapper.All of these fractions are responsive (fractions). The repeat notation is not necessary but it prevents you from typing out 1fr 12 times. I chose to use 12 because it worked well generally when positioning several elements across a span. */
+    grid-template-rows: 150px auto auto auto auto auto;  /*FCC Grid tutorial.In this case we have 6 rows. The header is fixed at 150px (because it worked for my logo) and all the remaining rows are repsonsive i.e. auto. */
+
+}
+
+#index-header{
+    grid-column-start: 2; /*This starts at the seccnd line i.e. division. */
+    grid-column-end: 4 /*This ends at the third line i.e. division. */;
+    
+}
+
+#index-navbar{
+    grid-column-start: 3;
+    grid-column-end: -3; /*2 lines from the end in this case. */
+    height:100%;
+    
+}
+
+#index-content1{
+    grid-column-start: 2;
+    grid-column-end: -2;
+    height:100%;
+    
+}
+
+#index-content2{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+}
+
+#index-content3{
+    grid-column-start: 1;
+    grid-column-end: -1;/*The last line i.e. the edge of the columns. */
+    
+}
+#index-footer{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    height:100%;
+}
+
+/*Header */
+.header {
+    display: grid;
+    grid-template-rows: repeat(12,1fr);
+    grid-template-rows: 1fr 1fr; /*here instead of the repeat notation I just used to 1frs i.e. 2 responsive fractions. */
+    grid-gap: 4px;
+    grid-template-areas: 
+        ". . . . . . . . . . . ."
+        "l l l . . . . . . . . ."; /*FCC Grid tutorial. The dots represent space. The 'l's are arbitrarily named and thereafter this l was assigned to the header img (logo was the rationale). The beauty of grid-areas is you can basically draw out a box and poition items therein using the schematic notation. It's absolutely amazing how powerful this is. */
+    
+}
+
+.header img {
+    height:100px;
+    grid-area: l; /*This is the l we initialised above. Presto. */
+}
+
+
+/*Navbar */
+
+
+#ul-navbar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /*A responsive navbar is this simple in grid. */
+    grid-gap:4px;
+   
+    
+} 
+
+#ul-navbar li {
+    list-style: none;  /*Gets rid of the dots. */
+    text-align: center;   
+}
+
+#ul-navbar a {
+    text-decoration: none; /*Gets rid of the underlines. */
+    font-size: 1.2rem;
+    color: black;
+    
+}
+
+
+/*Content 1 */
+
+.content1 >div >img{ 
+    width:100%;
+    height: 100%;
+    object-fit: cover; /*Comment from user on YT video i.e. the FCC tutorial. Width and height set to  the image to full size within the container. Object fit:cover then ensures the image fills the container.*/
+    opacity: 0.7;
+    
+}
+
+
+/*Content 2 */
+#content2 {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 20px 20px 20px 20px auto auto;
+        
+}
+
+
+.content2 {
+    text-align: center;
+}
+
+.content2 > ul{
+    list-style: none;
+}
+
+
+.content2 h2{
+    font-size: 2.5rem;
+
+}
+
+.content2 h3{
+    font-size: 2.5rem;
+
+}
+
+.content2 h4{
+    font-size: 1.5rem;
+   
+}
+
+.content2 p{
+    font-size:1.2rem;    
+}
+
+
+/*Content 3 */
+.content3 {
+    text-align: center;
+
+}
+
+/*Footer */
+
+#ul-footer {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 20px 20px 20px 20px;
+    grid-gap:4px; /*grid areas for footer */
+    grid-template-areas: 
+        ". t t t s s s s f f . ."
+        ". . . . . . . . . . . ."
+        ". . . . . . . . . . . ."
+        ". . . . . . . . . . . .";
+    /*FCC video re: grid area functionality */
+}
+
+
+
+#territor{
+    grid-area:t;
+}
+
+#insta{
+    grid-area: s;
+}
+
+#faceb{
+    grid-area: f;
+}
+
+
+
+#ul-footer li {
+    list-style: none;
+    text-align: center;
+}
+
+
+#ul-footer a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;    
+}
+
+#ul-footer a img {
+    height:60px;
+}
+
+/*GALLERY */
+
+/*Wrapper Grid Gallery */
+
+.gallery-wrapper{
+    height:100%;
+    display:grid;
+    grid-gap: 4px;
+    grid-template-columns: repeat(12,1fr); 
+    grid-template-rows: 150px auto auto auto auto;
+}
+
+#gallery-header{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    
+}
+
+#gallery-navbar{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+    
+}
+
+#gallery-content1{
+    grid-column-start: 2;
+    grid-column-end: -2;
+    height:100%;
+    
+}
+
+#gallery-content1{
+    grid-column-start: 2;
+    grid-column-end: -2;
+    height:100%;
+    
+}
+
+
+#gallery-content2{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+}
+
+
+#gallery-footer{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    height:100%;
+}
+
+/*Header */
+#gallery-header {
+    display: grid;
+    grid-template-rows: repeat(12,1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 4px;
+    grid-template-areas: 
+        ". . . . . . . . . . . ."
+        "l l l . . . . . . . . .";
+    
+}
+
+#gallery-header img {
+    height:100px;
+    grid-area: l;
+}
+
+
+#gallery-content1 > h1{
+    text-align: center;
+
+}
+
+/*Gallery Content2 */
+
+
+
+#gallery-content2{
+    display:grid;
+    grid-gap:10px;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); /*FCC video section on auto-fit and minmax setting. What this means is the columns will automatically fit their respective containers. They will never be smaller than 300px in width. At a maximum they will be 1fr each- so 3 span across the page at their greatest extent (within the confines of their outer wrapper). */
+    grid-auto-rows: 300px; /*FCC video section on auto-fit and minmax setting. In the vertical extent, they will always be 300px. */
+    grid-auto-flow:dense; /*FCC video section on auto-fit and minmax setting. This setting makes the images fit the space as best they can. What's remarkable about it is, if we had images of varying sizes (which we assigned as small,medium and large for example) it would not place the divs according to their position in the markup (i.e. from top to bottom). So this CSS positioning does not obey the HTML markup. This is obviously very powerful.For the sake of simplicity I just kept the images all the same size, so there's no evidence of this feature in action here. */
+    
+
+}
+
+#gallery-content2 > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Gallery Navbar */
+
+
+#ul-navbar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap:4px;
+   
+    
+} 
+
+#ul-navbar li {
+    list-style: none;
+    
+    text-align: center;
+    
+    
+}
+
+#ul-navbar a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
+    
+}
+
+/*ABOUT */
+ /*The styling to make te youtube videos responsive is not not my code.  /*https://www.csstutorial.net/make-youtube-and-vimeo-videos-responsive-with-css.php */
+.responsive-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow:hidden;
+    margin-bottom: 50px;
+}
+
+.responsive-container iframe {
+    position: absolute;
+    top:0;left:0;
+    width: 100%;
+    height: 100%;
+}
+/*This is the code snippet I used above
+https://www.csstutorial.net/make-youtube-and-vimeo-videos-responsive-with-css.php*/
+
+
+.about-wrapper{
+    height:100%;
+    display:grid;
+    grid-gap: 4px;
+    grid-template-columns: repeat(12,1fr); 
+    grid-template-rows: 150px auto auto;
+
+}
+
+#about-header{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    
+}
+
+#about-navbar{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+    
+}
+
+#about-content1{
+    grid-column-start: 2;
+    grid-column-end: -2;
+    height:100%;
+    
+}
+
+#about-content1{
+    grid-column-start: 2;
+    grid-column-end: -2;
+    height:100%;
+    
+}
+
+
+#about-footer{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    height:100%;
+}
+
+/*Header */
+#about-header {
+    display: grid;
+    grid-template-rows: repeat(12,1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 4px;
+    grid-template-areas: 
+        ". . . . . . . . . . . ."
+        "l l l . . . . . . . . .";
+    
+}
+
+#about-header img {
+    height:100px;
+    grid-area: l;
+}
+
+
+#about-content1{
+    display:grid;
+    grid-gap:10px;
+    grid-template-columns: minmax(200px,300px) 1fr; /*This allowed the Youtube videos to lay beside the text. */
+    grid-template-rows:repeat(2,1fr);
+    
+}
+
+/*DOGS */
+
+.dogs-wrapper{
+    height:100%;
+    display:grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(12,1fr); 
+    grid-template-rows: 150px auto auto auto auto auto auto;
+
+}
+
+#dogs-header{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    
+}
+
+#dogs-navbar{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+    
+}
+
+#dogs-content1{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+    
+}
+
+
+
+#dogs-content2{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+}
+
+#dogs-content3{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    
+}
+
+#dogs-content4{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    
+}
+#dogs-footer{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    height:100%;
+}
+
+/*Header */
+#dogs-header {
+    display: grid;
+    grid-template-rows: repeat(12,1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 4px;
+    grid-template-areas: 
+        ". . . . . . . . . . . ."
+        "l l l . . . . . . . . .";
+    
+}
+
+.dogs-wrapper > div > p{
+    font-size:1.2rem;
+}
+
+.dogs-wrapper > div > h3{
+    font-size:1.4rem;
+}
+
+#dogs-header img {
+    height:100px;
+    grid-area: l;
+}
+
+/*Dogs content */
+
+
+.dogs-content1 >div >img{ /*comment on yt video FCC*/
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    
+}
+
+.dogs-content2 >div >img{ /*comment on yt video FCC*/
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    
+}
+
+.dogs-content3 >div >img{ /*comment on yt video FCC*/
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    
+}
+
+.dogs-content4 >div >img{ /*comment on yt video FCC*/
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    
+}
+
+
+
+#dogs-content1{
+    text-align:center;    
+}
+
+#dogs-content2{
+    text-align:center;    
+}
+
+#dogs-content3{
+    text-align:center;   
+}
+
+#dogs-content4{
+    text-align:center;
+    
+}
+
+
+/*DONATE */
+
+.donate-wrapper{
+    height:100%;
+    display:grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(12,1fr); 
+    grid-template-rows: 150px auto auto auto auto auto auto;
+
+}
+
+#donate-header{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    
+}
+
+#donate-navbar{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+    
+}
+
+#donate-content1{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+    
+}
+
+
+#donate-content2{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+}
+
+#donate-content3{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    
+}
+#donate-footer{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    height:100%;
+}
+
+/*Header */
+#donate-header {
+    display: grid;
+    grid-template-rows: repeat(12,1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 4px;
+    grid-template-areas: 
+        ". . . . . . . . . . . ."
+        "l l l . . . . . . . . .";
+    
+}
+
+#donate-header img {
+    height:100px;
+    grid-area: l;
+}
+
+/*Donate content */
+
+.donate-content1 li{
+    list-style: none;
+    text-align: center;
+}
+
+.donate-content1{
+    display:grid;
+    grid-template-rows: repeat(12,1fr);
+    grid-template-rows:auto;
+    grid-gap:0px;
+    grid-template-areas: 
+        ". . . . t t t t . . . ."
+        ". . . w w w w w w . . ."
+        ". . p p p p p p p p . ."
+        ". . . . . . . . . . . ."
+}
+
+
+.donate-content1 h1 {
+    grid-area: t;
+    
+}
+
+.donate-content1 h3 {
+    grid-area: w;
+    
+}
+
+.donate-content1 p {
+    grid-area: p;
+    
+}
+
+
+
+
+
+
+.donate-content3 >div >img{ /*comment on yt video FCC*/
+
+    object-fit: cover;
+    
+}
+
+
+#donate-content1{
+    text-align:center;
+
+    
+}
+
+#donate-content2{
+    text-align:center;
+    
+}
+
+#donate-content2{
+    grid-column-start: 3;
+    grid-column-end: -3;
+    height:100%;
+    display:grid;
+    grid-gap: 10px;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#donate-content3{
+    text-align:center;
+    background-color: rgb(25,123,135,0.8); /*the 0.8 is something I learned off Stack to induce opacity changes, I also used a plugin called Eye Dropper to pull the colour off the original TDZ website*/    
+}
+
+
+
+.donate-content3 >div >img{ /*comment on yt video FCC*/
+    object-fit: cover;   
+}
+
+#donate-content3{
+    display: grid;
+    grid-template-columns: repeat(14,1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "h h h h . s s s s . b b b b"
+        ". . . . . . . . . . . . . ."
+        ; /*the extra dots (spaces) here just segregate this div better from the navbar.*/
+   
+}
+
+
+.donate-content3 div:nth-child(1){ /*I can't remember where I found the nth child notation but it's pretty great. Possibly the FCC tutorial also.*/
+    grid-area: h;
+
+}
+
+.donate-content3 div:nth-child(2){
+    grid-area: s;
+
+}
+
+.donate-content3 div:nth-child(3){
+    grid-area: b;
+    
+    
+}
+
+.donate-content3 >div >p{
+    color: whitesmoke;
+}
+
+#terr-costs{
+    border-style: solid;
+    border-color:rgb(25,123,135); 
+    border-radius:10px; /*this imparts rounded edges- https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius- MDN is the resource */
+    font-size: 1.2rem;
+}
+
+.table{
+    width:100%;
+    border-collapse: collapse; /*this overrides border-radius- originally I wanted a rounded table too- but it looked fine so I abandoned the idea. */
+    
+}
+
+td, th{
+    border-style: solid;
+    border-color:rgb(25,123,135); 
+    font-size: 1.2rem;
+}
+
+.button{
+    border-color:rgb(25,123,135);
+    border-width: 0.2rem;
+    font-size: 2rem;
+    background-color: rgb(25,123,135,0.2);
+    
+}
+
+.button:hover{ /*I originally saw this on a youtube tutorial, then it was brought up in lectures. */
+    background-color:rgb(25,123,135);
+    color: white;
+}
+
+
+
+
+

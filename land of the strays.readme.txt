@@ -1,0 +1,113 @@
+COMP30680 Web Application Development
+Assignment 1: HTML and CSS
+Student: Donal O' Farrell 
+Student no.: 18200416
+
+Website for a charity : Territorio de Zaguates (Land of the Strays), Costa Rica
+
+5 pages:
+Home 
+About 
+Dogs 
+Donate 
+Gallery 
+
+Code validated using 
+• HTML: https://validator.w3.org/
+• CSS: https://jigsaw.w3.org/css-validator/
+
+On the index.html page there is a 'consider changing' error, for the section heading. I opted to ignore this. 
+All other code has been validated with no detectable errors present.
+
+Requirements:
+ 
+1.Links to both your own pages and external webpages:
+
+I have relative links in my navbar to each of the respective web pages on the site. I have external links to Instagram and Facebook pages in my footer icons. I have an external link to a donate page on my donate button on my donate.html page.
+
+2.A navigation bar:
+
+The navbar was constructed responsively using CSS grid(which is the main structure used in the site). I specifically used the nav html element. It appears on all pages underneath the header image. 
+
+3.At least one table:
+
+I've included a table on my donate.html page. It includes info on the costs associated for taking care of a dog monthly for this charity. 
+
+4. At least one list (ordered or unordered):
+
+On my index.html page, class=section2 employs an un-ordered list to lay out the content. I have for example header tags within each l element. Also my navbar and my footer is constructed using un-ordered lists. 
+
+5.At least one local or embedded video:
+
+There is a Youtube video (unresponsive) on my index.html page. There are two responsive videos on my about.html page. 
+
+6.At least four CSS3 and four HTML5 elements:
+
+CSS3 properties
+
+(1)RGB Alpha 
+I used this on my donate.html page. It allows you to impart opacity changes on background images. Line 703 of index.css is an example of this. 
+(2)Opacity
+I used this to change the opacity of background image such as the hero image on index.html. Line 122 of index.css is an example of this.
+(3)Border radius 
+This allows you to round the edges of a box. I rounded the #terr-costs box border on the donate.html page. Line 748 of index.css is the usage of the feature mentioned. 
+(4) Justify-content 
+This a feature of flexbox allowing for horizontal centring of elements. The entire wrapper employed flexbox to avail of both justify content(horizontal) and align-items(vertical) centring features.  
+ 
+HTML5 elements
+
+(1)<header>- I used this for my header elements on most of my html pages.
+(2)<nav> - I used this for my navbars.
+(3)<section>- I used this this to divide major sections on a page in most cases, however I also used <div> elements. 
+(4)<footer>- I used this element for my footers. 
+
+7. Make use of the CSS positional properties (e.g. position, float):
+
+I used a combination of Flexbox and CSS grid. I used this tutorial as my reference https://youtu.be/t6CBKf8K_Ac to learn css grid. I've explained in my index.css file when and how I use a particular feature, and I point out when I received info directly from the video when necessary. You may notice frequent references to FCC tutorial video on css grid.
+Flexbox was used on the entire wrapper around all the respective elements on a page. This was used to avail of the justify-content and align-items features which allow for horizontal and vertical centring respectively. 
+CSS grid was then used to position all of the elements on the page, and sometimes within a division such as for example the navbar or the footer. I used the grid-column and row: start and end features which allows you to place constraints on where specific boxes start and stop. 
+I also availed of a more elegant feature called grid-area which effectively allows you to draw schematically using letters and dots, where particular elements appear.
+I also used grid-auto flow for my gallery page to automatically make the images re-position according to the size of the web page.
+
+8.Make use of both inline and block elements
+I used an inline <strong> element on my index.html page to embolden '1300 dogs'.
+I used block elements such as <p> and <h3> throughout the website.
+I had no reason that I'm aware of to use the display: block or display:inline feature in my css. 
+
+
+How you explored additional features of HTML and CSS:
+
+Responsive design: 
+
+I wanted the entire web page to be responsive and after several drafts of frustration, I eventually discovered the FreeCodeCamp [https://youtu.be/t6CBKf8K_Ac] tutorial video on css grid. Grid seemed incredibly powerful so I wanted to learn how to use it to structure my web page and individual elements within a box. 
+
+Grid requires a wrapper around all of the elements that it's going to operate on. I used flexbox features on this wrapper to allow for horizontal and vertical centring --> this was recommended in the tutorial. Then each div element within can be positioned accordingly. 
+
+After this you assign how many boxes you want in a given direction i.e. columns and rows. Is you want these rows to be responsive you set their divisions to be fractions or auto (i.e.) they will adjust in size as the view screen changes in size, or you can manually size them to a pixel value for example if you want them to remain constant. 
+
+I also used grid areas to allow me to schematically draw (using dots and letters) how elements were to be positioned within a given section such as the header or the nav bar.
+ 
+For my gallery I availed of the auto fit and minimax features to allow for automatic fitting of a given box and minimum and maximum sizes for a box(line 302 of index.css).
+Then I used grid-auto-flow:dense to make the browser automatically fit images on the page in response to re-sizing (line 304 of index.css). This was part of the css grid tutorial and I adapted the method to suit my own page. 
+
+I have responsive youtube videos on my about.html page. The CSS used here is not my code (line 344 of index.css). I used this resource: https://www.csstutorial.net/make-youtube-and-vimeo-videos-responsive-with-css.php. 
+Youtube videos proved difficult to make responsive with the <iframe> container having pre-assigned values for height and width. Due to time constraints I opted to just copy this code. 
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+ 
+	 
+
+
